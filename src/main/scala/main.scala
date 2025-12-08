@@ -14,12 +14,12 @@ object Main {
         val n = StdIn.readInt()
         if (n >= 2) n
         else {
-          println("Некорректный ввод, повторите!")
+          println("Некорректный ввод")
           loop
         }
       } catch {
         case _: NumberFormatException =>
-          println("Некорректный ввод, повторите!")
+          println("Некорректный ввод")
           loop
       }
     }
@@ -61,7 +61,7 @@ object Main {
 object CacheTest {
 
   def main(args: Array[String]): Unit = {
-    println("=== Тестирование 3-уровневой кэш-системы ===")
+    println("Тестирование 3-уровневой кэш-системы")
 
     import singletonfabric.Singleton
     import proxy._
@@ -103,7 +103,7 @@ object CacheTest {
 
     messages4.foreach(msg => println(s"  ${msg.level}: ${msg.message}"))
 
-    println("\n=== Финальное состояние кэша ===")
+    println("\nФинальное состояние кэша")
     println(s"L1: ${state4.l1.size} элементов")
     println(s"L2: ${state4.l2.size} элементов")
     println(s"L3: ${state4.l3.size} элементов")
