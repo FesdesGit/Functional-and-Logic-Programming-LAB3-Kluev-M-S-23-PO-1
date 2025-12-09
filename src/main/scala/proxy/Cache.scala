@@ -51,7 +51,6 @@ object CacheL3 {
             )
         }
       } else {
-        // Удаляем из L3 и готовимся к уведомлению наблюдателей
         val newL3 = state.l3 - singleton.name
         val message = CacheMessage("L3", s"Removed ${singleton.name} from L3, count: $count")
         state.copy(
@@ -85,7 +84,6 @@ object CacheL2 {
             )
         }
       } else {
-        // Удаляем из L2
         val newL2 = state.l2 - singleton.name
         state.copy(
           l2 = newL2,
@@ -117,7 +115,6 @@ object CacheL1 {
             )
         }
       } else {
-        // Удаляем из L1 если существует
         val newL1 = state.l1 - singleton.name
         state.copy(
           l1 = newL1,
