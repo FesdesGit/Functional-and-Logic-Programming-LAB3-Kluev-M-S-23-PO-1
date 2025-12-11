@@ -1,6 +1,6 @@
 import scala.concurrent._
 import scala.concurrent.duration._
-import scala.util.{Random, Try, Success, Failure}
+import scala.util.Random
 import scala.collection.immutable.Queue
 
 case class Customer(id: Int, name: String, arrivalTime: Long = System.currentTimeMillis())
@@ -42,10 +42,6 @@ class AsyncQueue[A](maxSize: Int)(implicit ec: ExecutionContext) {
 
   def isEmpty: Boolean = lock.synchronized {
     queue.isEmpty
-  }
-
-  def isFull: Boolean = lock.synchronized {
-    queue.size >= maxSize
   }
 }
 
@@ -189,8 +185,6 @@ class BarberShopService(seats: Int) {
     isOpen = false
     println("Барбершоп закрывается...")
   }
-
-  def isShopOpen: Boolean = isOpen
 }
 
 class SimulationService {
